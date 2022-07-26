@@ -1,16 +1,8 @@
 const assertEqual = function(actual, expected) {
-
-  if (actual.length !== expected.length) {
-    console.log(`🛑🛑🛑 Assertion Failed: ${actual} !== ${expected}`);
- 
-  } else {
-    for (let i = 0; i < actual.length; i++) {
-      if (actual[i] !== expected[i]) {
-        console.log(`🛑🛑🛑 Assertion Failed: ${actual} !== ${expected}`);
-        return;
-      }
-    }
+  if (actual === expected) {
     console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);
+  } else if (actual !== expected) {
+    console.log(`🛑🛑🛑 Assertion Failed: ${actual} !== ${expected}`);
   }
 };
 
@@ -24,8 +16,7 @@ const tail = function(array) {
 };
 
 const result = tail(["Hello", "Lighthouse", "Labs"]);
-assertEqual(result, ["Lighthouse", "Labs"]);
-
-
-const test = tail(["Apple", "Lighthouse", "Orange"]);
-assertEqual(test, ["Apple", "Orange"]);
+const expected = ["Lighthouse", "Labs"];
+assertEqual(result.length, expected.length);
+assertEqual(result[0], "Lighthouse");
+assertEqual(result[1], "Labs");
