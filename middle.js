@@ -26,10 +26,10 @@ const middle = function (arr) {
 
   if (lgth > 2) {
     for (let i = 0; i < lgth; i++) {
-      if (lgth % 2 !== 0) {
+      if (lgth % 2 !== 0) { //If lgth is an odd number.
         return [(arr[Math.floor(midIdx)])];
       }
-      if (lgth % 2 === 0) {
+      if (lgth % 2 === 0) { //If lgth is an even number.
         return [arr[Math.floor(midIdx) - 1], arr[Math.floor(midIdx)]];
       }
     }
