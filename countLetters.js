@@ -11,11 +11,14 @@ const assertEqual = function(actual, expected) {
 const countLetters = function(str) {
   let count = {};
 
-  for (letter of str) {
+  for (const letter of str) {
     if (letter !== ' ') {
-      count[letter] = count.hasOwnProperty(letter) 
-        ? count[letter] + 1 
-        : 1;
+      if (count[letter]) {
+        count[letter] += 1;
+      }
+      if (!count[letter]) {
+        count[letter] = 1;
+      }
     }
   }
   return count;
