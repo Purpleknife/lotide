@@ -1,11 +1,10 @@
 const assertEqual = function(actual, expected) {
-  const inspect = require('util').inspect; //To fix output object issue.
 
   if (actual === expected) {
-    console.log(`✅✅✅ Assertion Passed: ${inspect(actual)} === ${inspect(expected)}`);
+    console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);
   }
   if (actual !== expected) {
-    console.log(`🛑🛑🛑 Assertion Failed: ${inspect(actual)} !== ${inspect(expected)}`);
+    console.log(`🛑🛑🛑 Assertion Failed: ${actual} !== ${expected}`);
   }
 };
 
@@ -28,21 +27,19 @@ const countLetters = function(str) {
 console.log(countLetters("lighthouse in the house"));
 console.log(countLetters('LHL'));
 
-const test1 = { 
-  l: 1,
-  i: 2,
-  g: 1,
-  h: 4,
-  t: 2,
-  o: 2,
-  u: 2,
-  s: 2,
-  e: 3,
-  n: 1
-};
-const test2 = { 
-  'L': '2',
-  'H': '1'
-};
-assertEqual(countLetters("lighthouse in the house"), test1);
-assertEqual(countLetters('LHL'), test2);
+const test1 = countLetters("lighthouse in the house");
+const test2 = countLetters('LHL');
+
+assertEqual(test1['l'], 1);
+assertEqual(test1['i'], 2);
+assertEqual(test1['g'], 1);
+assertEqual(test1['h'], 4);
+assertEqual(test1['t'], 2);
+assertEqual(test1['o'], 2);
+assertEqual(test1['u'], 2);
+assertEqual(test1['s'], 2);
+assertEqual(test1['e'], 3);
+assertEqual(test1['n'], 1);
+
+assertEqual(test2['L'], 2);
+assertEqual(test2['H'], 1);
