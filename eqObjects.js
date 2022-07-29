@@ -35,12 +35,23 @@ const eqObjects = function(object1, object2) {
     if (Array.isArray(object1[key]) && Array.isArray(object2[key])) { //If it's an array, eqArrays will take care of the comparison.
       return eqArrays(object1[key], object2[key]);
     }
+    if (typeof object1[key] === 'object' && typeof object2[key] === 'object') { //Added this line (recursion) to handle nested objects.
+      return eqObjects(object1[key], object2[key]);
+    }
     if (object1[key] !== object2[key]) { //If the values of the keys are primitives and don't match, return false.
       return false;
     }
   }
   return true;
 };
+
+
+//To check if eqObjects is now recursive:
+console.log(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 })); // => true
+console.log(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 })); // => false
+console.log(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 })); // => false
+console.log(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { y: 0, z: 1 }, b: 2 })); // => true
+
 
 const ab = { a: "1", b: "2" };
 const ba = { b: "2", a: "1" };
