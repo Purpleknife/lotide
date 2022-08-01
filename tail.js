@@ -1,4 +1,4 @@
-//tail returns the last 2 elements of an array, or an empty array when the input is empty too.
+//tail returns every element except the head (first element) of the array, or an empty array when the input is empty too.
 
 const tail = function(array) {
   let newTail = [];

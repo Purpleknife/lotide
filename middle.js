@@ -14,7 +14,7 @@ const middle = function(arr) {
       }
     }
   }
-  return newArr; //Return empty array if lgth < 2.
+  return newArr; //Return empty array if lgth <= 2.
 };
 
 module.exports = middle;
