@@ -31,8 +31,9 @@ const letterPositions = function(sentence) {
       position = results[newStr[i]];
       position.push(i);
     }
-    if (!results[newStr[i]]) //If the letter doesn't exist, create it and add the index to it.
+    if (!results[newStr[i]]) { //If the letter doesn't exist, create it and add the index to it.
       results[newStr[i]] = [i];
+    }
   }
   return results;
 };
