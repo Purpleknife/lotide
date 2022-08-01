@@ -1,11 +1,4 @@
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);
-  }
-  if (actual !== expected) {
-    console.log(`🛑🛑🛑 Assertion Failed: ${actual} !== ${expected}`);
-  }
-};
+//tail returns the last 2 elements of an array, or an empty array when the input is empty too.
 
 const tail = function(array) {
   let newTail = [];
@@ -15,8 +8,4 @@ const tail = function(array) {
   return newTail;
 };
 
-const result = tail(["Hello", "Lighthouse", "Labs"]);
-const expected = ["Lighthouse", "Labs"];
-assertEqual(result.length, expected.length);
-assertEqual(result[0], "Lighthouse");
-assertEqual(result[1], "Labs");
+module.exports = tail;
