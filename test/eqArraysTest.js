@@ -1,19 +1,23 @@
-//Test codes from eqArray file:
-
-const assertEqual = require('../assertEqual');
+const assert = require('chai').assert;
 const eqArrays = require('../eqArrays');
 
+describe("#eqArrays", () => {
+  it("returns true if both arrays (with nested arrays) match", () => {
+    const a = [[2, 3], [4]];
+    const b = [[2, 3], [4]];
+    assert.deepEqual(eqArrays(a, b), true);
+  });
 
-//To check if eqArrays is now recursive (checks nested arrays):
-console.log(eqArrays([[2, 3], [4]], [[2, 3], [4]])); // => true
-console.log(eqArrays([[2, 3], [4]], [[2, 3], [4, 5]])); // => false
-console.log(eqArrays([[2, 3], [4]], [[2, 3], 4])); // => false
-console.log(eqArrays([[2, 3], 4], [[2, 3], 4])); // => true
+  it("returns true if both arrays (with nested arrays) match", () => {
+    const ac = [[2, 3], [4, 5]];
+    const bc = [[2, 3], [4, 5]];
+    assert.deepEqual(eqArrays(ac, bc), true);
+  });
 
+  it("returns true if both arrays match", () => {
+    const ab = ["1", "2", "3"];
+    const ba = ["1", "2", "3"];
+    assert.deepEqual(eqArrays(ab, ba), true);
+  });
 
-assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true); // => true
-assertEqual(eqArrays(["1", "2", "3"], ["1", "2", "3"]), true); // => true
-assertEqual(eqArrays(["1", "2", "3"], ["1", "2", 3]), true); // => false
-assertEqual(eqArrays([[2, 3], [4]], [[2, 3], [4]]), true); // => true
-assertEqual(eqArrays([[2, 3], [4]], [[2, 3], 4]), false); // => true
-assertEqual(eqArrays([[2, 3], [4]], [[2, 3], 4]), true); // => false
+});
